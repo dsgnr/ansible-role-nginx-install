@@ -1,0 +1,18 @@
+---
+
+- name: Add Nginx repository
+  yum_repository:
+    name: nginx
+    description: Nginx repo
+    file: nginx
+    baseurl: "https://nginx.org/packages/{{ ansible_distribution | lower }}/$releasever/$basearch/"
+    gpgkey: https://nginx.org/packages/keys/nginx_signing.key
+    gpgcheck: yes
+    enabled: yes
+
+- name: Install Nginx
+  yum:
+    name: nginx
+    state: present
+  notify:
+    - Enable and start Nginx
