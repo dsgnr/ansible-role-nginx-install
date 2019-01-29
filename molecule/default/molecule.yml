@@ -12,10 +12,17 @@ platforms:
     volume_mounts:
       - "/sys/fs/cgroup:/sys/fs/cgroup:rw"
     command: "/usr/sbin/init"
+  - name: molecule-ubuntu1404
+    image: ubuntu:trusty
   - name: molecule-ubuntu1604
     image: ubuntu:xenial
   - name: molecule-ubuntu1804
     image: ubuntu:bionic
+  - name: molecule-debian8
+    image: debian:jessie
+  - name: molecule-debian9
+    image: debian:stretch
+
 provisioner:
   name: ansible
   config_options:

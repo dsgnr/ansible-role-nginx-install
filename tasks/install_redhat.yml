@@ -1,18 +1,19 @@
 ---
 
-- name: Add Nginx repository
+- name: Add Nginx repository on Redhat/Centos
   yum_repository:
     name: nginx
     description: Nginx repo
     file: nginx
-    baseurl: "https://nginx.org/packages/{{ ansible_distribution | lower }}/$releasever/$basearch/"
+    baseurl: https://nginx.org/packages/{{ os_repo_name }}/$releasever/$basearch/
     gpgkey: https://nginx.org/packages/keys/nginx_signing.key
     gpgcheck: yes
     enabled: yes
 
-- name: Install Nginx
+- name: Install Nginx Redhat/Centos
   yum:
     name: nginx
     state: present
+  register: is_installed
   notify:
     - Enable and start Nginx
