@@ -10,7 +10,7 @@
   apt_key:
     url: https://nginx.org/keys/nginx_signing.key
     state: present
-  when: (ansible_distribution == "Debian) or (ansible_distribution == "Ubuntu" and ansible_distribution_major_version != '14')
+  when: (ansible_distribution == "Debian") or (ansible_distribution == "Ubuntu" and ansible_distribution_major_version != '14')
 
 - name: Configure repository for Debian/Ubuntu
   apt_repository:

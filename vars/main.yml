@@ -1,2 +1,11 @@
 ---
-# vars file for nginx-install
+os_repos_names:
+  'RedHat': rhel
+  'CentOS': centos
+  'Debian': debian
+  'Ubuntu': ubuntu
+  'OracleLinux': centos
+
+os_repo_name: os_repo_names[ansible_distribution]
+
+...
